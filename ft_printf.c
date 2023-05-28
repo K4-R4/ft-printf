@@ -6,15 +6,15 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:03:05 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/26 21:58:47 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/28 23:56:23 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 // int ft_printf(const char *, ...);
 
-int	main(void)
-{
-	ft_putstr_fd(1, "aaaaaaaaaaa\n");
-}
+// int	main(void)
+// {
+// 	ft_putstr_fd("AAAAAAAAA\n", 1);
+// }

@@ -4,14 +4,17 @@ INCLUDE = -I $(LIBFT_PATH)/libft.h -I ft_printf.h
 SRCS = ft_printf.c
 OBJS = $(SRCS:.c=.o)
 LIBFT_PATH = ./libft
+LIBFT = libft.a
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	make -C $(LIBFT_PATH)
+	cp $(LIBFT_PATH)/$(LIBFT) ./$@
 	$(AR) rc $@ $<
 
 .c.o: $(OBJS)
+	echo $(INCLUDE)
 	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 clean:

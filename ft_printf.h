@@ -6,13 +6,13 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:03:12 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/26 21:50:49 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/28 23:51:18 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-#include "libft.h"
+#include "./libft/libft.h"
 
 #endif
