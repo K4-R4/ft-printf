@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:03:05 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/29 23:55:32 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/29 23:56:41 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,15 @@ static int	ft_vprintf(va_list *ap, const char *fmt)
 	}
 	else if (*fmt == 'd')
 		l += ft_putnbr_base(va_arg(*ap, int), DECIMAL);
-	else if(*fmt == 'i')
+	else if (*fmt == 'i')
 		l += ft_putnbr_base(va_arg(*ap, int), DECIMAL);
-	else if(*fmt == 'u')
+	else if (*fmt == 'u')
 		l += ft_putnbr_base(va_arg(*ap, unsigned int), DECIMAL);
-	else if(*fmt == 'x')
+	else if (*fmt == 'x')
 		l += ft_putnbr_base(va_arg(*ap, unsigned int), HEXADECIMAL_L);
-	else if(*fmt == 'X')
+	else if (*fmt == 'X')
 		l += ft_putnbr_base(va_arg(*ap, unsigned int), HEXADECIMAL_U);
-	else if(*fmt == '%')
+	else if (*fmt == '%')
 		l += ft_printf_putchar('%');
 	return (l);
 }
