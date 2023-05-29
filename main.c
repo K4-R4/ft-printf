@@ -3,6 +3,12 @@
 
 int	main(void)
 {
-	ft_putnbr_base(256, "0123456789ABCDEF");
+	char *s1 = "aaaaaaaaaaaaaaaaaaaaaaaaaaa";
+	char *s2 = "AAAAAAAAAAAAAAAAAAAAAAAAAAA";
+	int d = 123456;
+	printf("%s%d%s\n", s1, d, s2);
+	ft_printf("%s%d%s\n", s1, d, s2);
+	printf("%d\n", d);
+	ft_printf("%d\n", d);
 	return 0;
 }
