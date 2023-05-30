@@ -6,13 +6,13 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 21:51:35 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/30 22:39:13 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/30 22:53:59 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static size_t	get_digit_count(unsigned long nbr, size_t base)
+static size_t	get_digit_count(unsigned long long nbr, size_t base)
 {
 	size_t	l;
 
@@ -27,14 +27,14 @@ static size_t	get_digit_count(unsigned long nbr, size_t base)
 	return (l);
 }
 
-static void	ft_putptr_base_helper(unsigned long nbr, char *base, size_t b)
+static void	ft_putptr_base_helper(unsigned long long nbr, char *base, size_t b)
 {
-	if (nbr >= (unsigned long)b)
+	if (nbr >= (unsigned long long)b)
 		ft_putptr_base_helper(nbr / b, base, b);
 	ft_putchar_r(base[nbr % b]);
 }
 
-static size_t	ft_putptr_base(unsigned long nbr, char *base)
+static size_t	ft_putptr_base(unsigned long long nbr, char *base)
 {
 	size_t	b;
 	size_t	l;
@@ -44,9 +44,9 @@ static size_t	ft_putptr_base(unsigned long nbr, char *base)
 	ft_putptr_base_helper(nbr, base, b);
 	return (l);
 }
-size_t	ft_printf_p(unsigned long ptr, t_placeholder ph)
+size_t	ft_printf_p(unsigned long long ptr, t_placeholder ph)
 {
-	size_t l;
+	size_t	l;
 
 	(void)ph;
 	l = 0;
