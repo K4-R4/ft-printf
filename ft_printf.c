@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 20:16:58 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/30 21:12:01 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/30 22:37:02 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,11 @@ static int	ft_vprintf(va_list *ap, t_placeholder ph)
 
 	l = 0;
 	if (ph.type == CHAR)
-		l += ft_printf_putchar((char)va_arg(*ap, int));
+		l += ft_putchar_r((char)va_arg(*ap, int));
 	else if (ph.type == STR)
-		l += ft_printf_putstr((char *)va_arg(*ap, char *));
+		l += ft_putstr_r((char *)va_arg(*ap, char *));
 	else if (ph.type == PTR)
-	{
-		l += ft_printf_putstr("0x");
-		l += ft_putnbr_base(va_arg(*ap, uintptr_t), HEXADECIMAL_L);
-	}
+		l += ft_printf_p(va_arg(*ap, unsigned long), ph);
 	else if (ph.type == DEC)
 		l += ft_putnbr_base(va_arg(*ap, int), DECIMAL);
 	else if (ph.type == INT)
@@ -37,7 +34,7 @@ static int	ft_vprintf(va_list *ap, t_placeholder ph)
 	else if (ph.type == HEX_U)
 		l += ft_putnbr_base(va_arg(*ap, unsigned int), HEXADECIMAL_U);
 	else if (ph.type == PERCENT)
-		l += ft_printf_putchar('%');
+		l += ft_putchar_r('%');
 	return (l);
 }
 
@@ -111,7 +108,7 @@ int	ft_printf(const char *fmt, ...)
 			l += ft_vprintf(&ap, ph);
 		}
 		else
-			l += ft_printf_putchar(*fmt++);
+			l += ft_putchar_r(*fmt++);
 	}
 	va_end(ap);
 	return (l);

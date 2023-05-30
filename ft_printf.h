@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:03:12 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/30 18:47:28 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/30 21:59:30 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,9 @@ typedef struct s_placeholder
 }			t_placeholder;
 
 int			ft_printf(const char *fmt, ...);
-size_t		ft_printf_putchar(char c);
-size_t		ft_printf_putstr(char *s);
+size_t		ft_putchar_r(char c);
+size_t		ft_putstr_r(char *s);
 size_t		ft_putnbr_base(long long nbr, char *base);
+size_t		ft_printf_p(uintptr_t p, t_placeholder ph);
 
 #endif
