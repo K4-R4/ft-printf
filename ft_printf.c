@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/30 18:36:35 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/30 18:53:22 by tkuramot         ###   ########.fr       */
+/*   Created: 2023/05/30 20:16:58 by tkuramot          #+#    #+#             */
+/*   Updated: 2023/05/30 21:12:01 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	ft_vprintf(va_list *ap, t_placeholder ph)
 	else if (ph.type == PTR)
 	{
 		l += ft_printf_putstr("0x");
-		l += ft_putnbr_base((long long)va_arg(*ap, long long), HEXADECIMAL_L);
+		l += ft_putnbr_base(va_arg(*ap, uintptr_t), HEXADECIMAL_L);
 	}
 	else if (ph.type == DEC)
 		l += ft_putnbr_base(va_arg(*ap, int), DECIMAL);
