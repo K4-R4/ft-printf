@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 20:16:58 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/31 17:47:08 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/31 17:53:51 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ static int	ft_vprintf(va_list *ap, t_placeholder ph)
 
 	l = 0;
 	if (ph.type == CHAR)
-		l += ft_putchar_r((char)va_arg(*ap, int));
+		l += ft_printf_char((char)va_arg(*ap, int), ph);
 	else if (ph.type == STR)
-		l += ft_putstr_r((char *)va_arg(*ap, char *));
+		l += ft_printf_str(va_arg(*ap, char *), ph);
 	else if (ph.type == PTR)
 		l += ft_printf_ptr(va_arg(*ap, unsigned long long), ph);
 	else if (ph.type == DEC)

@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:03:12 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/31 17:47:08 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/31 17:52:54 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,7 @@ size_t		ft_putnbr_base(unsigned long long nbr, char *base);
 size_t		ft_printf_ptr(unsigned long long p, t_placeholder ph);
 size_t		ft_printf_int(long long nbr, t_placeholder ph);
 size_t		ft_printf_uint(unsigned long long nbr, t_placeholder ph);
+size_t		ft_printf_char(char c, t_placeholder ph);
+size_t		ft_printf_str(char *s, t_placeholder ph);
 
 #endif
