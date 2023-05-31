@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 20:16:58 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/31 17:53:51 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/31 18:56:07 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static const char	*parse_placeholder(const char *fmt, t_placeholder *ph)
 		ph->field_width *= 10 + (*fmt++ - '0');
 	if (*fmt && *fmt == '.')
 		while (*fmt && ft_isdigit(*++fmt))
-			ph->precision *= 10 + (*fmt - '0');
+			ph->precision = ph->precision * 10 + (*fmt - '0');
 	if (*fmt && *fmt == 'c')
 		ph->type = CHAR;
 	else if (*fmt && *fmt == 's')

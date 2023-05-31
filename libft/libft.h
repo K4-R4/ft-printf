@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:57:25 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/28 23:18:55 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/31 18:33:25 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,7 @@ size_t				find_chr(char *s, char c);
 size_t				ft_strlen_s(const char *s);
 char				*ft_strnjoin(char const *s1, char const *s2, size_t n1,
 						size_t n2);
+size_t				ft_putchar_r(char c);
+size_t				ft_putstr_r(char *s);
 
 #endif

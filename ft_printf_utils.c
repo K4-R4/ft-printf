@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_put.c                                    :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 22:22:33 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/31 17:11:55 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/31 18:56:33 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	ft_putchar_r(char c)
+size_t	ft_putstr_n(char *s, size_t n)
 {
-	return (write(STDOUT_FILENO, &c, 1));
+	size_t	l;
+
+	l = 0;
+	while (n--)
+		l += ft_putstr_r(s);
+	return (l);
 }
 
-size_t	ft_putstr_r(char *s)
-{
-	if (!s)
-		return (ft_putstr_r("(null)"));
-	return (write(STDOUT_FILENO, s, ft_strlen(s)));
-}
-
-static size_t	get_digit_count(unsigned long long nbr, size_t base)
+size_t	get_digit_count(unsigned long long nbr, size_t base)
 {
 	size_t	l;
 

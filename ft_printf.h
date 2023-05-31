@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:03:12 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/31 17:52:54 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/31 18:47:36 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # define HEXADECIMAL_U "0123456789ABCDEF"
 # define HEXADECIMAL_L "0123456789abcdef"
 # define DECIMAL "0123456789"
-# define FLAGS "-0.# +"
+# define FLAGS "-0# +"
 
 # include "./libft/libft.h"
 # include <stdarg.h>
@@ -54,9 +54,9 @@ typedef struct s_placeholder
 }			t_placeholder;
 
 int			ft_printf(const char *fmt, ...);
-size_t		ft_putchar_r(char c);
-size_t		ft_putstr_r(char *s);
+size_t		ft_putstr_n(char *s, size_t n);
 size_t		ft_putnbr_base(unsigned long long nbr, char *base);
+size_t		get_digit_count(unsigned long long nbr, size_t base);
 size_t		ft_printf_ptr(unsigned long long p, t_placeholder ph);
 size_t		ft_printf_int(long long nbr, t_placeholder ph);
 size_t		ft_printf_uint(unsigned long long nbr, t_placeholder ph);

@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 20:17:30 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/31 18:02:44 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/31 18:26:05 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,14 @@ int	main(void)
 	printf("%d\n", ft_printf("%#X\n", 256));
 	printf("%d\n", printf("%#X\n", 0));
 	printf("%d\n", ft_printf("%#X\n", 0));
+	printf("==========%%.d==========\n");
+	printf("%d\n", printf("%.4d\n", 120));
+	printf("%d\n", ft_printf("%.4d\n", 120));
+	printf("%d\n", printf("%.3d\n", -9));
+	printf("%d\n", ft_printf("%.3d\n", -9));
+	printf("%d\n", printf("%.0d\n", 120));
+	printf("%d\n", ft_printf("%.0d\n", 120));
+	printf("%d\n", printf("%.0d\n", 0));
+	printf("%d\n", ft_printf("%.0d\n", 0));
 	return (0);
 }
