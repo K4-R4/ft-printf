@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_integer.c                                :+:      :+:    :+:   */
+/*   ft_printf_int.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-size_t	ft_printf_integer(long long nbr, t_placeholder ph)
+size_t	ft_printf_int(long long nbr, t_placeholder ph)
 {
 	size_t	l;
 

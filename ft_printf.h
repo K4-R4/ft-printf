@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:03:12 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/31 17:42:07 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/05/31 17:47:08 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ int			ft_printf(const char *fmt, ...);
 size_t		ft_putchar_r(char c);
 size_t		ft_putstr_r(char *s);
 size_t		ft_putnbr_base(unsigned long long nbr, char *base);
-size_t		ft_printf_pointer(unsigned long long p, t_placeholder ph);
-size_t		ft_printf_integer(long long nbr, t_placeholder ph);
-size_t		ft_printf_uinteger(unsigned long long nbr, t_placeholder ph);
+size_t		ft_printf_ptr(unsigned long long p, t_placeholder ph);
+size_t		ft_printf_int(long long nbr, t_placeholder ph);
+size_t		ft_printf_uint(unsigned long long nbr, t_placeholder ph);
 
 #endif
