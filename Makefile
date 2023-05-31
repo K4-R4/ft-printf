@@ -1,7 +1,8 @@
 NAME = libftprintf.a
 CFLAGS = -Wall -Wextra -Werror
 INCLUDE = -I $(LIBFT_PATH)/libft.h -I ft_printf.h
-SRCS = ft_printf.c ft_printf_put.c ft_printf_p.c ft_printf_x.c
+SRCS = ft_printf.c ft_printf_utils.c ft_printf_pointer.c \
+		ft_printf_integer.c ft_printf_uinteger.c
 OBJS = $(SRCS:.c=.o)
 LIBFT_PATH = ./libft
 LIBFT = libft.a
