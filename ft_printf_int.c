@@ -17,13 +17,20 @@ size_t	ft_printf_int(long long nbr, t_placeholder ph)
 	size_t	l;
 
 	l = 0;
+	if (get_digit_count(nbr, 10) < ph.field_width)
+		l += ft_putstr_n(" ", ph.field_width - get_digit_count(nbr, 10));
 	if (nbr < 0)
 	{
 		nbr *= -1;
 		l += ft_putchar_r('-');
 	}
-	else if(nbr >= 0 && (ph.flags & PLUS))
-		l += ft_putchar_r('+');
+	else
+	{
+		if (ph.flags & PLUS)
+			l += ft_putchar_r('+');
+		else if (ph.flags & SPACE)
+			l += ft_putchar_r(' ');
+	}
 	if (get_digit_count(nbr, 10) < ph.precision)
 		l += ft_putstr_n("0", ph.precision - get_digit_count(nbr, 10));
 	if (!nbr && !ph.precision)
