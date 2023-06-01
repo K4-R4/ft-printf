@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 20:17:30 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/06/01 22:19:01 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/06/01 22:34:09 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,21 @@ int	main(void)
 	printf("%d\n", ft_printf("%d\n", INT_MIN));
 	printf("%d\n", printf("%d\n", (int)LONG_MIN));
 	printf("%d\n", ft_printf("%d\n", (int)LONG_MIN));
+	printf("==========%%u==========\n");
+	printf("%d\n", printf("%u\n", 120));
+	printf("%d\n", ft_printf("%u\n", 120));
+	printf("%d\n", printf("%u\n", -9));
+	printf("%d\n", ft_printf("%u\n", -9));
+	printf("%d\n", printf("%u\n", 0));
+	printf("%d\n", ft_printf("%u\n", 0));
+	printf("%d\n", printf("%u\n", -256));
+	printf("%d\n", ft_printf("%u\n", -256));
+	printf("%d\n", printf("%u\n", INT_MAX));
+	printf("%d\n", ft_printf("%u\n", INT_MAX));
+	printf("%d\n", printf("%u\n", INT_MIN));
+	printf("%d\n", ft_printf("%u\n", INT_MIN));
+	printf("%d\n", printf("%u\n", (int)LONG_MIN));
+	printf("%d\n", ft_printf("%u\n", (int)LONG_MIN));
 	printf("==========%%p==========\n");
 	printf("%d\n", printf("%p\n", (void *)LONG_MAX));
 	printf("%d\n", ft_printf("%p\n", (void *)LONG_MAX));
@@ -80,5 +95,18 @@ int	main(void)
 	printf("%d\n", ft_printf("%.s\n", ""));
 	printf("%d\n", printf("%.s\n", "1234"));
 	printf("%d\n", ft_printf("%.s\n", "1234"));
+	printf("==========%%.u==========\n");
+	printf("%d\n", printf("%.3u\n", 11));
+	printf("%d\n", ft_printf("%.3u\n", 11));
+	printf("%d\n", printf("%.4u\n", 120));
+	printf("%d\n", ft_printf("%.4u\n", 120));
+	printf("%d\n", printf("%.0u\n", 120));
+	printf("%d\n", ft_printf("%.0u\n", 120));
+	printf("%d\n", printf("%.0u\n", 0));
+	printf("%d\n", ft_printf("%.0u\n", 0));
+	printf("%d\n", printf("%.2u\n", 256));
+	printf("%d\n", ft_printf("%.2u\n", 256));
+	printf("%d\n", printf("%u\n", INT_MAX));
+	printf("%d\n", ft_printf("%u\n", INT_MAX));
 	return (0);
 }

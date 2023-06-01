@@ -18,7 +18,13 @@ size_t	ft_printf_uint(unsigned long long nbr, t_placeholder ph)
 
 	l = 0;
 	if (ph.type == U_DEC)
-		return (ft_putnbr_base(nbr, DECIMAL));
+	{
+		if (get_digit_count(nbr, 10) < ph.precision)
+			l += ft_putstr_n("0", ph.precision - get_digit_count(nbr, 10));
+		if (!nbr && !ph.precision)
+			return (0);
+		return (l + ft_putnbr_base(nbr, DECIMAL));
+	}
 	else if (ph.type == HEX_L)
 	{
 		if (nbr && ph.flags & HASH)
