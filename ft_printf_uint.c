@@ -14,7 +14,7 @@
 
 size_t	ft_printf_uint(unsigned long long nbr, t_placeholder ph)
 {
-	size_t l;
+	size_t	l;
 
 	l = 0;
 	if (ph.type == U_DEC)

@@ -6,11 +6,20 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 20:16:58 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/31 18:56:07 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/06/01 22:21:48 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static const char	*parse_number(const char *fmt, int *result)
+{
+	if (*fmt && ft_isdigit(*fmt))
+		*result = 0;
+	while (*fmt && ft_isdigit(*fmt))
+		*result = *result * 10 + (*fmt++ - '0');
+	return (fmt);
+}
 
 static int	ft_vprintf(va_list *ap, t_placeholder ph)
 {
@@ -60,11 +69,12 @@ static const char	*parse_flags(const char *fmt, t_placeholder *ph)
 static const char	*parse_placeholder(const char *fmt, t_placeholder *ph)
 {
 	fmt = parse_flags(fmt, ph);
-	while (*fmt && ft_isdigit(*fmt))
-		ph->field_width *= 10 + (*fmt++ - '0');
+	fmt = parse_number(fmt, &(ph->field_width));
 	if (*fmt && *fmt == '.')
-		while (*fmt && ft_isdigit(*++fmt))
-			ph->precision = ph->precision * 10 + (*fmt - '0');
+	{
+		ph->precision = 0;
+		fmt = parse_number(++fmt, &(ph->precision));
+	}
 	if (*fmt && *fmt == 'c')
 		ph->type = CHAR;
 	else if (*fmt && *fmt == 's')
@@ -101,8 +111,8 @@ int	ft_printf(const char *fmt, ...)
 		if (*fmt == '%')
 		{
 			ph.flags = 0;
-			ph.field_width = 0;
-			ph.precision = 0;
+			ph.field_width = -1;
+			ph.precision = -1;
 			ph.type = -1;
 			fmt = parse_placeholder(++fmt, &ph);
 			l += ft_vprintf(&ap, ph);

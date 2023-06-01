@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 20:17:30 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/31 18:26:05 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/06/01 22:19:01 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int	main(void)
 {
-	const char	*s1 = "aaaaaaa";
+	const char	*s1 = "1234567890";
 	const char	*s2 = NULL;
 
 	printf("==========%%s==========\n");
@@ -37,6 +37,8 @@ int	main(void)
 	printf("%d\n", ft_printf("%d\n", INT_MAX));
 	printf("%d\n", printf("%d\n", INT_MIN));
 	printf("%d\n", ft_printf("%d\n", INT_MIN));
+	printf("%d\n", printf("%d\n", (int)LONG_MIN));
+	printf("%d\n", ft_printf("%d\n", (int)LONG_MIN));
 	printf("==========%%p==========\n");
 	printf("%d\n", printf("%p\n", (void *)LONG_MAX));
 	printf("%d\n", ft_printf("%p\n", (void *)LONG_MAX));
@@ -61,5 +63,22 @@ int	main(void)
 	printf("%d\n", ft_printf("%.0d\n", 120));
 	printf("%d\n", printf("%.0d\n", 0));
 	printf("%d\n", ft_printf("%.0d\n", 0));
+	printf("%d\n", printf("%.d\n", 120));
+	printf("%d\n", ft_printf("%.d\n", 120));
+	printf("==========%%.s==========\n");
+	printf("%d\n", printf("%.4s\n", s1));
+	printf("%d\n", ft_printf("%.4s\n", s1));
+	printf("%d\n", printf("%.0s\n", s1));
+	printf("%d\n", ft_printf("%.0s\n", s1));
+	printf("%d\n", printf("%.4s\n", s2));
+	printf("%d\n", ft_printf("%.4s\n", s2));
+	printf("%d\n", printf("%.0s\n", s2));
+	printf("%d\n", ft_printf("%.0s\n", s2));
+	printf("%d\n", printf("%.1s\n", ""));
+	printf("%d\n", ft_printf("%.1s\n", ""));
+	printf("%d\n", printf("%.s\n", ""));
+	printf("%d\n", ft_printf("%.s\n", ""));
+	printf("%d\n", printf("%.s\n", "1234"));
+	printf("%d\n", ft_printf("%.s\n", "1234"));
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 22:22:33 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/31 18:56:33 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/06/01 21:36:10 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ size_t	ft_putstr_n(char *s, size_t n)
 	return (l);
 }
 
-size_t	get_digit_count(unsigned long long nbr, size_t base)
+int	get_digit_count(unsigned long long nbr, size_t base)
 {
-	size_t	l;
+	int	l;
 
 	l = 0;
 	if (nbr == 0)

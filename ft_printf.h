@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:03:12 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/31 18:47:36 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/06/01 21:37:32 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,15 @@ typedef enum e_type
 typedef struct s_placeholder
 {
 	int		flags;
-	size_t	field_width;
-	size_t	precision;
+	int		field_width;
+	int		precision;
 	t_type	type;
 }			t_placeholder;
 
 int			ft_printf(const char *fmt, ...);
 size_t		ft_putstr_n(char *s, size_t n);
 size_t		ft_putnbr_base(unsigned long long nbr, char *base);
-size_t		get_digit_count(unsigned long long nbr, size_t base);
+int			get_digit_count(unsigned long long nbr, size_t base);
 size_t		ft_printf_ptr(unsigned long long p, t_placeholder ph);
 size_t		ft_printf_int(long long nbr, t_placeholder ph);
 size_t		ft_printf_uint(unsigned long long nbr, t_placeholder ph);

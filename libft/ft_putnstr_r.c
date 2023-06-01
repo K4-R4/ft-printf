@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_str.c                                    :+:      :+:    :+:   */
+/*   ft_putnstr_r.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/31 17:50:28 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/06/01 22:15:36 by tkuramot         ###   ########.fr       */
+/*   Created: 2023/06/01 21:59:02 by tkuramot          #+#    #+#             */
+/*   Updated: 2023/06/01 22:10:24 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-size_t	ft_printf_str(char *s, t_placeholder ph)
+size_t	ft_putnstr_r(char *s, size_t n)
 {
-	if (!s)
-		return (ft_printf_str("(null)", ph));
-	if (ph.precision != -1 && ph.precision < (int)ft_strlen(s))
-		return (ft_putnstr_r(s, ph.precision));
-	return (ft_putstr_r(s));
+	size_t	ret;
+
+	ret = n;
+	while (n--)
+		ft_putchar_r(*s++);
+	return (ret);
 }
