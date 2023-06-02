@@ -6,19 +6,19 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 22:22:33 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/06/01 21:36:10 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/06/02 17:35:01 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	ft_putstr_n(char *s, size_t n)
+size_t	ft_putchar_n(char c, size_t n)
 {
 	size_t	l;
 
 	l = 0;
-	while (n--)
-		l += ft_putstr_r(s);
+	while (n-- > 0)
+		l += ft_putchar_r(c);
 	return (l);
 }
 

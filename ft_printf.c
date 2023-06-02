@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 20:16:58 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/06/02 01:50:53 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/06/02 17:07:46 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,10 @@ static const char	*parse_flags(const char *fmt, t_placeholder *ph)
 		if (*fmt == '-')
 			ph->flags |= HYPHEN;
 		else if (*fmt == '0')
+		{
 			ph->flags |= ZERO;
+			ph->padding = '0';
+		}
 		else if (*fmt == '#')
 			ph->flags |= HASH;
 		else if (*fmt == ' ')
@@ -69,7 +72,7 @@ static const char	*parse_flags(const char *fmt, t_placeholder *ph)
 static const char	*parse_placeholder(const char *fmt, t_placeholder *ph)
 {
 	fmt = parse_flags(fmt, ph);
-	fmt = parse_number(fmt, &(ph->field_width));
+	fmt = parse_number(fmt, &(ph->width));
 	if (*fmt && *fmt == '.')
 	{
 		ph->precision = 0;
@@ -111,9 +114,10 @@ int	ft_printf(const char *fmt, ...)
 		if (*fmt == '%')
 		{
 			ph.flags = 0;
-			ph.field_width = -1;
+			ph.width = -1;
 			ph.precision = -1;
 			ph.type = -1;
+			ph.padding = ' ';
 			fmt = parse_placeholder(++fmt, &ph);
 			l += ft_vprintf(&ap, ph);
 		}

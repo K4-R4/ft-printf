@@ -16,8 +16,12 @@ size_t	ft_printf_ptr(unsigned long long ptr, t_placeholder ph)
 {
 	size_t	l;
 
-	(void)ph;
 	l = 0;
+	if (!(ph.flags & HYPHEN) && get_digit_count(ptr, 16) + 2 < ph.width)
+		l += ft_putchar_n(ph.padding, ph.width - get_digit_count(ptr, 16) - 2);
 	l += ft_putstr_r("0x");
-	return (l + ft_putnbr_base(ptr, HEXADECIMAL_L));
+	l += ft_putnbr_base(ptr, HEXADECIMAL_L);
+	if ((ph.flags & HYPHEN) && get_digit_count(ptr, 16) + 2 < ph.width)
+		l += ft_putchar_n(ph.padding, ph.width - get_digit_count(ptr, 16) - 2);
+	return (l);
 }

@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:03:12 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/06/01 21:37:32 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/06/02 17:34:51 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 # include "./libft/libft.h"
 # include <stdarg.h>
+# include <stdbool.h>
 // For debug
 # include <stdio.h>
 
@@ -48,13 +49,14 @@ typedef enum e_type
 typedef struct s_placeholder
 {
 	int		flags;
-	int		field_width;
+	int		width;
 	int		precision;
 	t_type	type;
+	char	padding;
 }			t_placeholder;
 
 int			ft_printf(const char *fmt, ...);
-size_t		ft_putstr_n(char *s, size_t n);
+size_t		ft_putchar_n(char c, size_t n);
 size_t		ft_putnbr_base(unsigned long long nbr, char *base);
 int			get_digit_count(unsigned long long nbr, size_t base);
 size_t		ft_printf_ptr(unsigned long long p, t_placeholder ph);

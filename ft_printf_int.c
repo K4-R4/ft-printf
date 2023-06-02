@@ -15,10 +15,10 @@
 size_t	ft_printf_int(long long nbr, t_placeholder ph)
 {
 	size_t	l;
+	bool	neg;
 
 	l = 0;
-	if (get_digit_count(nbr, 10) < ph.field_width)
-		l += ft_putstr_n(" ", ph.field_width - get_digit_count(nbr, 10));
+	neg = nbr < 0;
 	if (nbr < 0)
 	{
 		nbr *= -1;
@@ -31,9 +31,15 @@ size_t	ft_printf_int(long long nbr, t_placeholder ph)
 		else if (ph.flags & SPACE)
 			l += ft_putchar_r(' ');
 	}
+	if (!(ph.flags & HYPHEN) && get_digit_count(nbr, 10) < ph.width)
+		l += ft_putchar_n(ph.padding, ph.width - get_digit_count(nbr, 10) - neg);
 	if (get_digit_count(nbr, 10) < ph.precision)
-		l += ft_putstr_n("0", ph.precision - get_digit_count(nbr, 10));
+		l += ft_putchar_n('0', ph.precision - get_digit_count(nbr, 10));
 	if (!nbr && !ph.precision)
 		return (0);
-	return (l + ft_putnbr_base(nbr, DECIMAL));
+	else
+		l += ft_putnbr_base(nbr, DECIMAL);
+	if ((ph.flags & HYPHEN) && !(ph.flags & ZERO) && get_digit_count(nbr, 10) < ph.width)
+		l += ft_putchar_n(ph.padding, ph.width - get_digit_count(nbr, 10) - neg);
+	return (l);
 }

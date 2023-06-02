@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 20:17:30 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/06/02 02:18:13 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/06/02 17:40:18 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,20 +138,38 @@ int	main(void)
 	printf("%d\n", ft_printf("% d\n", INT_MIN));
 	printf("%d\n", printf("% d\n", (int)LONG_MIN));
 	printf("%d\n", ft_printf("% d\n", (int)LONG_MIN));
-	printf("========================\n");
-	printf("%d\n", printf("[%4d]\n", 12));
-	printf("%d\n", ft_printf("[%4d]\n", 12));
-	printf("%d\n", printf("[%4d]\n", 12345));
-	printf("%d\n", ft_printf("[%4d]\n", 12345));
-	printf("%d\n", printf("[%4x]\n", 12));
-	printf("%d\n", ft_printf("[%4x]\n", 12));
-	printf("%d\n", printf("[%4x]\n", 12345));
-	printf("%d\n", ft_printf("[%4x]\n", 12345));
-	// printf("%d\n", printf("[%#4X]\n", 12));
-	// printf("%d\n", ft_printf("[%#4X]\n", 12));
-	printf("%d\n", printf("[%4s]\n", "a"));
-	printf("%d\n", ft_printf("[%4s]\n", "a"));
-	printf("%d\n", printf("[%4s]\n", "abcde"));
-	printf("%d\n", ft_printf("[%4s]\n", "abcde"));
+	printf("===========%%-s============\n");
+	printf("%d\n", printf("[%-4s]\n", "a"));
+	printf("%d\n", ft_printf("[%-4s]\n", "a"));
+	printf("%d\n", printf("[%-4s]\n", ""));
+	printf("%d\n", ft_printf("[%-4s]\n", ""));
+	printf("%d\n", printf("[%-4s]\n", "abcde"));
+	printf("%d\n", ft_printf("[%-4s]\n", "abcde"));
+	printf("===========%%-d============\n");
+	printf("%d\n", printf("[%-4d]\n", 0));
+	printf("%d\n", ft_printf("[%-4d]\n", 0));
+	printf("%d\n", printf("[%-4d]\n", 12));
+	printf("%d\n", ft_printf("[%-4d]\n", 12));
+	printf("%d\n", printf("[%-4d]\n", 12345));
+	printf("%d\n", ft_printf("[%-4d]\n", 12345));
+	printf("===========%%-u============\n");
+	printf("%d\n", printf("[%-3u]\n", 11));
+	printf("%d\n", ft_printf("[%-3u]\n", 11));
+	printf("%d\n", printf("[%-4u]\n", 120));
+	printf("%d\n", ft_printf("[%-4u]\n", 120));
+	printf("===========%%-x============\n");
+	printf("%d\n", printf("[%-4x]\n", 12));
+	printf("%d\n", ft_printf("[%-4x]\n", 12));
+	printf("%d\n", printf("[%-4x]\n", 12345));
+	printf("%d\n", ft_printf("[%-4x]\n", 12345));
+	printf("===========================\n");
+	printf("%d\n", printf("[%-11p]\n", (void *)INT_MIN));
+	printf("%d\n", ft_printf("[%-11p]\n", (void *)INT_MIN));
+	printf("%d\n", printf("[%-12p]\n", (void *)INT_MAX));
+	printf("%d\n", ft_printf("[%-12p]\n", (void *)INT_MAX));
+	printf("%d\n", printf("[%-12p]\n", (void *)ULONG_MAX));
+	printf("%d\n", ft_printf("[%-12p]\n", (void *)ULONG_MAX));
+	printf("%d\n", printf("[%-12p]\n", (void *)-ULONG_MAX));
+	printf("%d\n", ft_printf("[%-12p]\n", (void *)-ULONG_MAX));
 	return (0);
 }
