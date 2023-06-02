@@ -12,17 +12,23 @@
 
 #include "ft_printf.h"
 
-size_t	ft_printf_int(long long nbr, t_placeholder ph)
+static bool	ft_abs(long long *nbr)
 {
-	size_t		l;
-	long long	digit;
-	bool		neg;
+	bool	is_neg;
+
+	is_neg = *nbr < 0;
+	if (is_neg)
+		*nbr *= -1;
+	return (is_neg);
+}
+
+static size_t	print_sign(bool is_neg, t_placeholder ph)
+{
+	size_t	l;
 
 	l = 0;
-	neg = nbr < 0;
-	if (nbr < 0)
+	if (is_neg)
 	{
-		nbr *= -1;
 		l += ft_putchar_r('-');
 	}
 	else
@@ -32,16 +38,50 @@ size_t	ft_printf_int(long long nbr, t_placeholder ph)
 		else if (ph.flags & SPACE)
 			l += ft_putchar_r(' ');
 	}
+	return (l);
+}
+
+static t_placeholder	get_output_length(long long digit, t_placeholder ph)
+{
+	if (ph.precision != -1 && ph.precision > digit)
+		ph.len = ph.precision;
+	else
+		ph.len = digit;
+	return (ph);
+}
+
+static t_placeholder	adjust_padding(long long nbr, t_placeholder ph)
+{
+	if (!nbr && !ph.precision && (ph.flags & ZERO))
+		ph.padding = ' ';
+	return (ph);
+}
+
+size_t	ft_printf_int(long long nbr, t_placeholder ph)
+{
+	size_t		l;
+	long long	digit;
+	bool		is_neg;
+
+	l = 0;
+	is_neg = ft_abs(&nbr);
 	digit = get_digit_count(nbr, 10);
-	if (!(ph.flags & HYPHEN) && digit < ph.width)
-		l += ft_putchar_n(ph.padding, ph.width - digit - neg);
+	ph = get_output_length(digit, ph);
+	ph = adjust_padding(nbr, ph);
+	if (!(ph.flags & HYPHEN) && !(ph.flags & ZERO) && ph.len < ph.width)
+		l += ft_putchar_n(ph.padding, ph.width - ph.len - is_neg);
+	l += print_sign(is_neg, ph);
+	if (!(ph.flags & HYPHEN) && (ph.flags & ZERO) && ph.len < ph.width)
+		l += ft_putchar_n(ph.padding, ph.width - ph.len - is_neg);
 	if (digit < ph.precision)
 		l += ft_putchar_n('0', ph.precision - digit);
-	if (!nbr && !ph.precision)
-		return (0);
+	if (!nbr && !ph.precision && ph.width != -1)
+		l += ft_putchar_r(' ');
+	else if (!nbr && !ph.precision)
+		l += 0;
 	else
 		l += ft_putnbr_base(nbr, DECIMAL);
-	if ((ph.flags & HYPHEN) && !(ph.flags & ZERO) && digit < ph.width)
-		l += ft_putchar_n(ph.padding, ph.width - digit - neg);
+	if ((ph.flags & HYPHEN) && !(ph.flags & ZERO) && ph.len < ph.width)
+		l += ft_putchar_n(ph.padding, ph.width - ph.len - is_neg);
 	return (l);
 }

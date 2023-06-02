@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 20:17:30 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/06/02 20:51:45 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/06/03 03:52:53 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -303,5 +303,16 @@ int	main(void)
 	printf("------------------\n");
 	printf("%d\n", printf("[%2.d]\n", 120));
 	printf("%d\n", ft_printf("[%2.d]\n", 120));
+	printf("=================================DEC=w * p\n");
+	printf("%d\n", printf("[%.X]\n", 0));
+	printf("%d\n", ft_printf("[%.X]\n", 0));
+	printf("%d\n", printf("[%04d]\n", -11));
+	printf("%d\n", ft_printf("[%04d]\n", -11));
+	printf("%d\n", printf("[%020d]\n", -11));
+	printf("%d\n", ft_printf("[%020d]\n", -11));
+	printf("%d\n", printf("[%4d]\n", -11));
+	printf("%d\n", ft_printf("[%4d]\n", -11));
+	printf("%d\n", printf("[%20d]\n", -11));
+	printf("%d\n", ft_printf("[%20d]\n", -11));
 	return (0);
 }

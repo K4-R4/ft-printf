@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-static t_placeholder	calculate_output_length(char *s, t_placeholder ph)
+static t_placeholder	get_output_length(char *s, t_placeholder ph)
 {
 	size_t	l;
 
@@ -31,7 +31,7 @@ size_t	ft_printf_str(char *s, t_placeholder ph)
 	l = 0;
 	if (!s)
 		return (ft_printf_str("(null)", ph));
-	ph = calculate_output_length(s, ph);
+	ph = get_output_length(s, ph);
 	if (!(ph.flags & HYPHEN) && ph.len < ph.width)
 		l += ft_putchar_n(ph.padding, ph.width - ph.len);
 	if (ph.precision != -1 && ph.precision < (long long)ft_strlen(s))
