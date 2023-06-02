@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:03:12 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/06/02 17:34:51 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/06/02 20:40:33 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef enum e_flag
 	HASH = 1 << 2,
 	SPACE = 1 << 3,
 	PLUS = 1 << 4
-}			t_flag;
+}				t_flag;
 
 typedef enum e_type
 {
@@ -44,25 +44,27 @@ typedef enum e_type
 	HEX_U,
 	HEX_L,
 	PERCENT
-}			t_type;
+}				t_type;
 
 typedef struct s_placeholder
 {
-	int		flags;
-	int		width;
-	int		precision;
-	t_type	type;
-	char	padding;
-}			t_placeholder;
+	long long	flags;
+	long long	width;
+	long long	precision;
+	t_type		type;
+	char		padding;
+	long long	len;
+}				t_placeholder;
 
-int			ft_printf(const char *fmt, ...);
-size_t		ft_putchar_n(char c, size_t n);
-size_t		ft_putnbr_base(unsigned long long nbr, char *base);
-int			get_digit_count(unsigned long long nbr, size_t base);
-size_t		ft_printf_ptr(unsigned long long p, t_placeholder ph);
-size_t		ft_printf_int(long long nbr, t_placeholder ph);
-size_t		ft_printf_uint(unsigned long long nbr, t_placeholder ph);
-size_t		ft_printf_char(char c, t_placeholder ph);
-size_t		ft_printf_str(char *s, t_placeholder ph);
+int				ft_printf(const char *fmt, ...);
+size_t			ft_putchar_n(char c, size_t n);
+size_t			ft_putnbr_base(unsigned long long nbr, char *base);
+int				get_digit_count(unsigned long long nbr, size_t base);
+size_t			ft_printf_ptr(unsigned long long p, t_placeholder ph);
+size_t			ft_printf_int(long long nbr, t_placeholder ph);
+size_t			ft_printf_uint(unsigned long long nbr, t_placeholder ph);
+size_t			ft_printf_percent(t_placeholder ph);
+size_t			ft_printf_char(char c, t_placeholder ph);
+size_t			ft_printf_str(char *s, t_placeholder ph);
 
 #endif

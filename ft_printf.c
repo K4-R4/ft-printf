@@ -6,13 +6,13 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 20:16:58 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/06/02 17:07:46 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/06/02 20:40:58 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static const char	*parse_number(const char *fmt, int *result)
+static const char	*parse_number(const char *fmt, long long *result)
 {
 	if (*fmt && ft_isdigit(*fmt))
 		*result = 0;
@@ -43,7 +43,7 @@ static int	ft_vprintf(va_list *ap, t_placeholder ph)
 	else if (ph.type == HEX_U)
 		l += ft_printf_uint(va_arg(*ap, unsigned int), ph);
 	else if (ph.type == PERCENT)
-		l += ft_putchar_r('%');
+		l += ft_printf_percent(ph);
 	return (l);
 }
 
