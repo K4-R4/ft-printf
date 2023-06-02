@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 20:16:58 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/06/02 20:40:58 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/06/02 20:57:07 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ static int	ft_vprintf(va_list *ap, t_placeholder ph)
 	else if (ph.type == U_DEC)
 		l += ft_printf_uint(va_arg(*ap, unsigned int), ph);
 	else if (ph.type == HEX_L)
-		l += ft_printf_uint(va_arg(*ap, unsigned int), ph);
+		l += ft_printf_lower_hex(va_arg(*ap, unsigned int), ph);
 	else if (ph.type == HEX_U)
-		l += ft_printf_uint(va_arg(*ap, unsigned int), ph);
+		l += ft_printf_upper_hex(va_arg(*ap, unsigned int), ph);
 	else if (ph.type == PERCENT)
 		l += ft_printf_percent(ph);
 	return (l);

@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:03:12 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/06/02 20:40:33 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/06/02 20:56:50 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ size_t			ft_putnbr_base(unsigned long long nbr, char *base);
 int				get_digit_count(unsigned long long nbr, size_t base);
 size_t			ft_printf_ptr(unsigned long long p, t_placeholder ph);
 size_t			ft_printf_int(long long nbr, t_placeholder ph);
+size_t			ft_printf_lower_hex(unsigned long long nbr, t_placeholder ph);
+size_t			ft_printf_upper_hex(unsigned long long nbr, t_placeholder ph);
 size_t			ft_printf_uint(unsigned long long nbr, t_placeholder ph);
 size_t			ft_printf_percent(t_placeholder ph);
 size_t			ft_printf_char(char c, t_placeholder ph);
