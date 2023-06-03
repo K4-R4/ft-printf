@@ -6,18 +6,27 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 20:16:58 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/06/03 19:00:03 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/06/03 22:09:46 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static const char	*parse_number(const char *fmt, long long *result)
+static const char	*parse_number(const char *fmt, t_placeholder *ph, char type)
 {
-	if (*fmt && ft_isdigit(*fmt))
-		*result = 0;
-	while (*fmt && ft_isdigit(*fmt))
-		*result = *result * 10 + (*fmt++ - '0');
+	if (type == 'p')
+	{
+		ph->precision = 0;
+		while (*fmt && ft_isdigit(*fmt))
+			ph->precision = ph->precision * 10 + (*fmt++ - '0');
+	}
+	else if (type == 'w')
+	{
+		if (*fmt && ft_isdigit(*fmt))
+			ph->width = 0;
+		while (*fmt && ft_isdigit(*fmt))
+			ph->width = ph->width * 10 + (*fmt++ - '0');
+	}
 	return (fmt);
 }
 
@@ -72,12 +81,9 @@ static const char	*parse_flags(const char *fmt, t_placeholder *ph)
 static const char	*parse_placeholder(const char *fmt, t_placeholder *ph)
 {
 	fmt = parse_flags(fmt, ph);
-	fmt = parse_number(fmt, &(ph->width));
+	fmt = parse_number(fmt, ph, 'w');
 	if (*fmt && *fmt == '.')
-	{
-		ph->precision = 0;
-		fmt = parse_number(++fmt, &(ph->precision));
-	}
+		fmt = parse_number(++fmt, ph, 'p');
 	if (*fmt && *fmt == 'c')
 		ph->type = CHAR;
 	else if (*fmt && *fmt == 's')

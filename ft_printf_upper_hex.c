@@ -12,7 +12,8 @@
 
 #include "ft_printf.h"
 
-static t_placeholder	get_output_length(unsigned long long digit, t_placeholder ph)
+static t_placeholder	get_output_length(unsigned long long digit,
+		t_placeholder ph)
 {
 	if (ph.precision != -1 && ph.precision > (long long)digit)
 		ph.len = ph.precision;

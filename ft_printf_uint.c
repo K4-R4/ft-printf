@@ -35,8 +35,8 @@ static t_placeholder	adjust_padding(long long nbr, t_placeholder ph)
 
 size_t	ft_printf_uint(unsigned long long nbr, t_placeholder ph)
 {
-	size_t	l;
-	long long digit;
+	size_t		l;
+	long long	digit;
 
 	l = 0;
 	digit = get_digit_count(nbr, 10);

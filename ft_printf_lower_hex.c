@@ -6,13 +6,14 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 20:53:42 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/06/03 20:56:03 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/06/03 21:57:51 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static t_placeholder	get_output_length(unsigned long long digit, t_placeholder ph)
+static t_placeholder	get_output_length(unsigned long long digit,
+		t_placeholder ph)
 {
 	if (ph.precision != -1 && ph.precision > (long long)digit)
 		ph.len = ph.precision;

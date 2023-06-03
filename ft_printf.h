@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:03:12 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/06/02 20:56:50 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/06/03 21:59:11 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@
 # include "./libft/libft.h"
 # include <stdarg.h>
 # include <stdbool.h>
-// For debug
-# include <stdio.h>
 
 typedef enum e_flag
 {

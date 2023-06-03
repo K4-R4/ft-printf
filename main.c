@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 20:17:30 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/06/03 21:10:55 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/06/03 21:59:23 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 int	main(void)
 {
-	char *ptr;
-	char *s;
+	char	*ptr;
+	char	*s;
 
 	ptr = "";
 	s = NULL;
