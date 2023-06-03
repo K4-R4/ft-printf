@@ -16,6 +16,8 @@ $(NAME): $(OBJS)
 	cp $(LIBFT_PATH)/$(LIBFT) ./$@
 	$(AR) rc $@ $^
 
+bonus: all
+
 .c.o: $(OBJS)
 	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 

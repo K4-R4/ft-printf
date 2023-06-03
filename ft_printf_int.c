@@ -54,6 +54,11 @@ static t_placeholder	adjust_padding(long long nbr, t_placeholder ph)
 {
 	if (!nbr && !ph.precision && (ph.flags & ZERO))
 		ph.padding = ' ';
+	if (ph.precision != -1 && (ph.flags & ZERO))
+	{
+		ph.padding = ' ';
+		ph.flags ^= ZERO;
+	}
 	return (ph);
 }
 

@@ -18,6 +18,8 @@ static t_placeholder	get_output_length(unsigned long long digit, t_placeholder p
 		ph.len = ph.precision;
 	else
 		ph.len = digit;
+	if (ph.flags & HASH)
+		ph.len += 2;
 	return (ph);
 }
 
@@ -25,22 +27,29 @@ static t_placeholder	adjust_padding(unsigned long long nbr, t_placeholder ph)
 {
 	if (!nbr && !ph.precision && (ph.flags & ZERO))
 		ph.padding = ' ';
+	if (ph.precision != -1 && (ph.flags & ZERO))
+	{
+		ph.padding = ' ';
+		ph.flags ^= ZERO;
+	}
 	return (ph);
 }
 
 size_t	ft_printf_upper_hex(unsigned long long nbr, t_placeholder ph)
 {
-	size_t	l;
+	size_t		l;
 	long long	digit;
 
 	l = 0;
 	digit = get_digit_count(nbr, 16);
 	ph = get_output_length(digit, ph);
 	ph = adjust_padding(nbr, ph);
-	if (!(ph.flags & HYPHEN) && ph.len < ph.width)
+	if (!(ph.flags & HYPHEN) && !(ph.flags & ZERO) && ph.len < ph.width)
 		l += ft_putchar_n(ph.padding, ph.width - ph.len);
 	if (nbr && ph.flags & HASH)
 		l += ft_putstr_r("0X");
+	if (!(ph.flags & HYPHEN) && (ph.flags & ZERO) && ph.len < ph.width)
+		l += ft_putchar_n(ph.padding, ph.width - ph.len);
 	if (digit < ph.precision)
 		l += ft_putchar_n('0', ph.precision - digit);
 	if (!nbr && !ph.precision && ph.width != -1)

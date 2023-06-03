@@ -12,20 +12,47 @@
 
 #include "ft_printf.h"
 
+static t_placeholder	get_output_length(long long digit, t_placeholder ph)
+{
+	if (ph.precision != -1 && ph.precision > digit)
+		ph.len = ph.precision;
+	else
+		ph.len = digit;
+	return (ph);
+}
+
+static t_placeholder	adjust_padding(long long nbr, t_placeholder ph)
+{
+	if (!nbr && !ph.precision && (ph.flags & ZERO))
+		ph.padding = ' ';
+	if (ph.precision != -1 && (ph.flags & ZERO))
+	{
+		ph.padding = ' ';
+		ph.flags ^= ZERO;
+	}
+	return (ph);
+}
+
 size_t	ft_printf_uint(unsigned long long nbr, t_placeholder ph)
 {
 	size_t	l;
+	long long digit;
 
 	l = 0;
-	if (!(ph.flags & HYPHEN) && get_digit_count(nbr, 10) < ph.width)
-		l += ft_putchar_n(ph.padding, ph.width - get_digit_count(nbr, 10));
-	if (get_digit_count(nbr, 10) < ph.precision)
-		l += ft_putchar_n('0', ph.precision - get_digit_count(nbr, 10));
-	if (!nbr && !ph.precision)
-		return (0);
+	digit = get_digit_count(nbr, 10);
+	ph = get_output_length(digit, ph);
+	ph = adjust_padding(nbr, ph);
+	if (!(ph.flags & HYPHEN) && ph.len < ph.width)
+		l += ft_putchar_n(ph.padding, ph.width - ph.len);
+	if (digit < ph.precision)
+		l += ft_putchar_n('0', ph.precision - digit);
+	if (!nbr && !ph.precision && ph.width != -1)
+		l += ft_putchar_r(' ');
+	else if (!nbr && !ph.precision)
+		l += 0;
 	else
 		l += ft_putnbr_base(nbr, DECIMAL);
-	if ((ph.flags & HYPHEN) && get_digit_count(nbr, 10) < ph.width)
-		l += ft_putchar_n(ph.padding, ph.width - get_digit_count(nbr, 10));
+	if ((ph.flags & HYPHEN) && ph.len < ph.width)
+		l += ft_putchar_n(ph.padding, ph.width - ph.len);
 	return (l);
 }

@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 20:17:30 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/06/03 03:52:53 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/06/03 21:10:55 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -304,15 +304,62 @@ int	main(void)
 	printf("%d\n", printf("[%2.d]\n", 120));
 	printf("%d\n", ft_printf("[%2.d]\n", 120));
 	printf("=================================DEC=w * p\n");
-	printf("%d\n", printf("[%.X]\n", 0));
-	printf("%d\n", ft_printf("[%.X]\n", 0));
-	printf("%d\n", printf("[%04d]\n", -11));
-	printf("%d\n", ft_printf("[%04d]\n", -11));
+	printf("%d\n", printf("[%010d]\n", -11));
+	printf("%d\n", ft_printf("[%010d]\n", -11));
+	printf("------------------\n");
+	printf("%d\n", printf("[%010.2d]\n", -11));
+	printf("%d\n", ft_printf("[%010.2d]\n", -11));
+	printf("------------------\n");
+	printf("%d\n", printf("[%010d]\n", -11));
+	printf("%d\n", ft_printf("[%010d]\n", -11));
+	printf("------------------\n");
+	printf("%d\n", printf("[%010.5d]\n", -11));
+	printf("%d\n", ft_printf("[%010.5d]\n", -11));
+	printf("------------------\n");
 	printf("%d\n", printf("[%020d]\n", -11));
 	printf("%d\n", ft_printf("[%020d]\n", -11));
+	printf("------------------\n");
 	printf("%d\n", printf("[%4d]\n", -11));
 	printf("%d\n", ft_printf("[%4d]\n", -11));
+	printf("------------------\n");
 	printf("%d\n", printf("[%20d]\n", -11));
 	printf("%d\n", ft_printf("[%20d]\n", -11));
+	printf("------------------\n");
+	printf("%d\n", printf("[%042.2x]\n", 42000));
+	printf("%d\n", ft_printf("[%042.2x]\n", 42000));
+	printf("------------------\n");
+	printf("%d\n", printf("[%042x]\n", 42000));
+	printf("%d\n", ft_printf("[%042x]\n", 42000));
+	printf("------------------\n");
+	printf("%d\n", printf("[%#042x]\n", 42000));
+	printf("%d\n", ft_printf("[%#042x]\n", 42000));
+	printf("------------------\n");
+	printf("%d\n", printf("[%#42x]\n", 42000));
+	printf("%d\n", ft_printf("[%#42x]\n", 42000));
+	printf("------------------\n");
+	printf("%d\n", printf("[%0u]\n", 0));
+	printf("%d\n", ft_printf("[%0u]\n", 0));
+	printf("------------------\n");
+	printf("%d\n", printf("[%-10u]\n", 0));
+	printf("%d\n", ft_printf("[%-10u]\n", 0));
+	printf("------------------\n");
+	printf("%d\n", printf("[%0.u]\n", 0));
+	printf("%d\n", ft_printf("[%0.u]\n", 0));
+	printf("------------------\n");
+	printf("%d\n", printf("[%-10.u]\n", 0));
+	printf("%d\n", ft_printf("[%-10.u]\n", 0));
+	printf("------------------\n");
+	printf("%d\n", printf("[%0.1u]\n", 0));
+	printf("%d\n", ft_printf("[%0.1u]\n", 0));
+	printf("------------------\n");
+	printf("%d\n", printf("[%-10.1u]\n", 0));
+	printf("%d\n", ft_printf("[%-10.1u]\n", 0));
+	printf("------------------\n");
+	printf("%d\n", printf("[%0.10u]\n", 0));
+	printf("%d\n", ft_printf("[%0.10u]\n", 0));
+	printf("------------------\n");
+	printf("%d\n", printf("[%-10.10u]\n", 0));
+	printf("%d\n", ft_printf("[%-10.10u]\n", 0));
+	printf("------------------\n");
 	return (0);
 }
