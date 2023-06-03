@@ -6,11 +6,11 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 18:31:59 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/05/31 18:32:15 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/06/03 22:21:01 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 size_t	ft_putchar_r(char c)
 {

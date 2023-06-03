@@ -6,7 +6,7 @@
 /*   By: tkuramot <tkuramot@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:03:12 by tkuramot          #+#    #+#             */
-/*   Updated: 2023/06/03 21:59:11 by tkuramot         ###   ########.fr       */
+/*   Updated: 2023/06/03 22:19:19 by tkuramot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,8 @@ size_t			ft_printf_uint(unsigned long long nbr, t_placeholder ph);
 size_t			ft_printf_percent(t_placeholder ph);
 size_t			ft_printf_char(char c, t_placeholder ph);
 size_t			ft_printf_str(char *s, t_placeholder ph);
+size_t			ft_putchar_r(char c);
+size_t			ft_putstr_r(char *s);
+size_t			ft_putnstr_r(char *s, size_t n);
 
 #endif
